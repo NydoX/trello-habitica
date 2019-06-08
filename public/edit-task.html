@@ -16,13 +16,13 @@
       <option name="Easy" value="0.1">Easy</option>
       <option value="1">Normal </option>
       <option value="1.5">Hard</option>
-      <option value="0">Custom</option>
+      <option id="CustomField" value="0">Custom</option>
     </select>
-    <input type="number" name="CustomValue" id="CustomValue" class="CustomValue">
-    <button id="submit-btn" type="submit" class="mod-primary">Save</button>
+    <input ontype="number" name="CustomValue" id="CustomValue" class="CustomValue">
+    <button onclick="editCustomValue();" id="submit-btn" type="submit" class="mod-primary">Save</button>
     
     <script>
-      function showCustomField (e){
+      function showCustomField (){
 
         if (document.getElementById("Difficulty").value == "0") {
            document.getElementById("CustomValue").style.display = "block"
@@ -31,6 +31,10 @@
         }
        
       }
+      function editCustomValue () {
+        document.getElementById("CustomField").value = document.getElementById("CustomValue").value;
+      }
+
       let trello = TrelloPowerUp.iframe()
       let form = new TaskForm(trello)
       form.initialize()
