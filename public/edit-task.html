@@ -1,43 +1,46 @@
 <!DOCTYPE html>
 <html>
-  <head>
-   
-    <link rel="stylesheet" href="./style.css">
-    <script src="https://p.trellocdn.com/power-up.min.js"></script>
-    <script src="js/storage.js"></script>
-    <script src="js/habitica-api.js"></script>
-    <script src="js/task.js"></script>
-    <script src="js/list.js"></script>
-    <script src="js/task-form.js"></script>
-  </head>
-  <body>
-    <b>Difficulty:</b>
-    <select id="Difficulty" onclick="showCustomField();" id="priority">
-      <option name="Easy" value="0.1">Easy</option>
-      <option value="1">Normal </option>
-      <option value="1.5">Hard</option>
-      <option id="CustomField" value="0">Custom</option>
-    </select>
-    <input ontype="number" name="CustomValue" id="CustomValue" class="CustomValue">
-    <button onclick="editCustomValue();" id="submit-btn" type="submit" class="mod-primary">Save</button>
-    
-    <script>
-      function showCustomField (){
 
-        if (document.getElementById("Difficulty").value == "0") {
-           document.getElementById("CustomValue").style.display = "block"
-        } else {
-          document.getElementById("CustomValue").style.display = "none"
-        }
-       
-      }
-      function editCustomValue () {
-        document.getElementById("CustomField").value = document.getElementById("CustomValue").value;
+<head>
+  <script src="https://p.trellocdn.com/power-up.min.js"></script>
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://p.trellocdn.com/power-up.min.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/habitica-api.js"></script>
+  <script src="js/task.js"></script>
+  <script src="js/list.js"></script>
+  <script src="js/task-form.js"></script>
+</head>
+
+<body>
+  <b>Difficulty:</b>
+  <select id="Difficulty" onclick="showCustomField();" id="priority">
+    <option name="Easy" value="0.1">Easy</option>
+    <option value="1">Normal </option>
+    <option value="1.5">Hard</option>
+    <option id="CustomField" value="0">Custom</option>
+  </select>
+  <input ontype="number" name="CustomValue" id="CustomValue" class="CustomValue">
+  <button onclick="editCustomValue();" id="submit-btn" type="submit" class="mod-primary">Save</button>
+
+  <script>
+    function showCustomField() {
+
+      if (document.getElementById("Difficulty").value == "0") {
+        document.getElementById("CustomValue").style.display = "block"
+      } else {
+        document.getElementById("CustomValue").style.display = "none"
       }
 
-      let trello = TrelloPowerUp.iframe()
-      let form = new TaskForm(trello)
-      form.initialize()
-    </script>
-  </body>
+    }
+    function editCustomValue() {
+      document.getElementById("CustomField").value = document.getElementById("CustomValue").value;
+    }
+
+    let trello = TrelloPowerUp.iframe()
+    let form = new TaskForm(trello)
+    form.initialize()
+  </script>
+</body>
+
 </html>
