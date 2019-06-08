@@ -33,8 +33,6 @@ class SettingsForm {
   }
 
   setPriority(val) {
-    console.log("vall",val);
-    
     this.$priority.value = val
   }
 
